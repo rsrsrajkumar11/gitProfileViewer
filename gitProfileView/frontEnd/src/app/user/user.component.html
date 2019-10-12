@@ -1,0 +1,40 @@
+<app-loader [show]='showLoader'></app-loader>
+<div class="container" *ngIf="!showLoader">
+  <div>
+    <div class="row my-4">
+      <img src="{{user?.avatar_url}}" class="col-md-2 col-4" alt="{{user?.name || 'N/A'}}">
+      <div class="col-8">
+          <h3>{{user?.name || 'N/A'}}</h3>
+          <h5>@{{user?.login}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="border-zero"><b>Bio</b></p>
+        <p class="border-zero">{{user?.bio || 'N/A'}}</p>
+        <p class="border-zero border-top-margin"><b>Works at</b></p>
+        <p class="border-zero">{{user?.company || 'N/A'}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <p class="border-zero border-top-margin"><b>Reposotoreis</b></p>
+        <p>{{user?.public_repos || 0}}</p>
+      </div>
+      <div class="col-6">
+        <p class="border-zero border-top-margin"><b>Followers</b></p>
+        <p>{{user?.followers || 0}}</p>
+      </div>
+    </div>
+
+    <p class="border-zero border-top-margin"><b>Pinned Reposotories</b></p>
+    <div class="row my-2 mycart" *ngFor="let repo of user?.repos">
+      <div class="col-2"><img src="https://image.flaticon.com/icons/svg/25/25231.svg" class="card-img git-logo" alt="..."></div>
+      <div class="col-8  d-flex align-content-center flex-wrap">
+        <p class="border-zero"><strong>{{user?.login}}{{repo?.name}}</strong>
+        <br>{{repo?.description}}
+        </p> 
+      </div>
+    </div>
+  </div>
+</div>

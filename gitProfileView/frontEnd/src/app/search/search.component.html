@@ -1,0 +1,42 @@
+<div class="col-12">
+  <div class="text-center">
+    <img class="img git-logo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+      alt="gitHub">
+    <span class="display-4 align-middle">GitHub Profile Viewer</span>
+    <div class="d-flex justify-content-center">
+      <div class="input-group col-7 col-sm-8">
+        <input type="text" [(ngModel)]="searchText" (blur)="search()" class="form-control"
+          aria-label="Dollar amount (with dot and two decimal places)">
+        <div class="input-group-append">
+          <span class="input-group-text"><input type="button" (click)="search()" class="btn btn-success"
+              value="Search"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="text-center my-4">
+  <app-loader [show]='showLoader'></app-loader>
+</div>
+
+<div class="card-columns my-4" infinite-scroll (scrolled)="onScrollDown()">
+  <div class="card mb-3" *ngFor="let user of viewUserArry">
+    <div class="row no-gutters" (click)="viewUser(user?.login)">
+      <div class="col-md-4 d-flex flex-wrap align-items-center">
+        <img src="{{user?.avatar_url || 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'}}"
+          class="card-img" alt="userAvtor">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{user?.name || 'N/A'}}</h5>
+          <p class="card-text max-lines">@{{user?.login}}<span *ngIf="user?.company">, works at {{user?.company}}</span><span
+              *ngIf="user?.bio">,{{user?.bio}}</span> </p>
+          <p class="card-text"><small class="text-muted">Last updated on {{user?.updated_at | date:"mediumDate"}}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

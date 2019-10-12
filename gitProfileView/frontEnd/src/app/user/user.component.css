@@ -1,0 +1,22 @@
+.rounded {
+  border-radius: 100% !important;
+  width: 45%;
+}
+
+.mycart {
+  border-radius: 5px;
+  box-shadow: 5px 3px 8px 2px #dedada;
+}
+
+
+.border-zero {
+  margin-bottom: 0rem;
+}
+
+.border-top-margin {
+  margin-top: 0.5rem;
+}
+
+.card-img {
+  padding: 15%;
+}

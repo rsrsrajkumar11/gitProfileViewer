@@ -1,0 +1,7 @@
+{
+    "git": {
+        "userName": "yourGitUserName",
+        "password": "yourPAssword"
+    },
+    "api": "https://api.github.com/"
+}
